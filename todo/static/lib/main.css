@@ -1,0 +1,109 @@
+.absolute {
+    background-color: #ff9400;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 576px) {
+    #taskcontrol {
+        position: absolute;
+    }
+}
+
+.boundary {
+}
+
+.task-box {
+    box-shadow: 4px 4px 4px #DDD;
+    border-radius: 4px;
+}
+
+.btn-check {
+    background: url("./o.jpg") no-repeat;
+    cursor: default;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    max-height: 20px !important;
+}
+.btn-check:hover {
+    background: url("./v.jpg") no-repeat;
+    cursor: pointer;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    max-height: 20px !important;
+}
+
+.btn-uncheck {
+    background: url("./v.jpg") no-repeat;
+    cursor: default;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    max-height: 20px !important;
+}
+.btn-uncheck:hover {
+    background: url("./o.jpg") no-repeat;
+    cursor: pointer;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    max-height: 20px !important;
+}
+
+.task-title {
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.task-edit {
+    background: url("./edit.png") no-repeat;
+    cursor: pointer;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    max-height: 20px !important;
+}
+
+.card-header {
+    background: white !important;
+}
+
+.task-label-box {
+    font-weight: bold;
+}
+
+.task-title-text {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-back {
+    background: url("./back.png") no-repeat;
+    cursor: pointer;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 25px !important;
+    max-height: 25px !important;
+}
+/*.btn-delete {
+    background: url("./delete.png") no-repeat;
+    cursor: pointer;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 25px !important;
+    max-height: 25px !important;
+}*/
+
+.text-complete {
+    text-decoration: line-through;
+}

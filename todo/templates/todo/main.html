@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap-reboot.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="{% static 'lib/main.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'lib/main.css' %}">
+    
+    <title>Todo</title>
+  </head>
+  <body>
+    <div class="boundary container">
+      <div class="row px-lg-2 px-md-1">
+        <!-- 제일 위에는 새 작업 추가하기 -->
+        <!-- 마감 지난거는 강조하는거, 시간 지난거 알림(alert) -->
+        <div id="task-list" class="col">
+          <div class="row h1 py-4">Todo</div>
+          
+          <div id="task-add" class="pb-2">
+            <div class="task-box card px-3">
+              <div class="card-header row py-0">
+                <div class="task-title col my-2 form-group">
+                  <input id="task-add-title" type="text" class="task-add-title form-control h-100 py-0 my-0" placeholder="할 일 추가">
+                </div>
+                <div class="task-edit col my-3" data-toggle="collapse" data-target="#task-add-content"></div>
+              </div>
+              
+              <div id="task-add-content" class="collapse" aria-labelledby="add-task-title" data-parent="#task-add">
+                <div class="card-body pt-2 pb-0 mb-0 form-group">
+                    <div class="row mx-1 pb-0 mb-0">
+                      <textarea id="task-add-content-text" type="text" class="form-control my-1" placeholder="세부 내용"></textarea>
+                      <div class="col col-sm-9 pl-0 pr-1">
+                        <input id="task-add-date" type="date" class="form-control my-1" placeholder="날짜">
+                      </div>
+                      <div class="col-2 col-sm-3 pl-1 pr-0">
+                        <input id="task-add-priority" type="number" min="1" max="5" class="form-control my-1" placeholder="우선순위">
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col"></div>
+                      <div class="col-auto">
+                        <div id="task-add-save-button" class="btn btn-outline-primary mb-3">저장</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          <!-- render task list -->
+          {% for task in tasks %}
+            {% include "todo/task.html" %}
+          {% endfor %}
+          
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

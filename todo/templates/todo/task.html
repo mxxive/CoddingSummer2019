@@ -1,0 +1,50 @@
+<div id="task-container-{{ task.id }}">
+  <div id="task-box-{{ task.id }}" class="task-box card px-3 collapse show" data-parent="#task-list">
+    <div id="task-title-{{ task.id }}" class="card-header row py-0">
+      {% if task.completed %}
+        <div class="btn-uncheck col-auto my-3" task-id="{{ task.id }}" data-toggle="collapse" data-target="#task-box-{{ task.id }}"></div>
+      {% else %}
+        <div class="btn-check col-auto my-3" task-id="{{ task.id }}" data-toggle="collapse" data-target="#task-box-{{ task.id }}"></div>
+      {% endif %}
+      <div class="task-title col my-3" data-toggle="collapse" data-target="#task-content-{{ task.id }}" aria-expanded="false">
+        {% if task.completed %}
+          <div id="task-title-text-{{ task.id }}" class="task-title-text text-complete">
+        {% else %}
+          <div id="task-title-text-{{ task.id }}" class="task-title-text">
+        {% endif %}
+          {{ task.title }}
+        </div>
+      </div>
+      <div class="task-edit col my-3" data-toggle="collapse" data-target="#task-content-{{ task.id }}" aria-expanded="false"></div>
+    </div>
+    
+    <div id="task-content-{{ task.id }}" class="collapse" aria-labelledby="task-title-{{ task.id }}" data-parent="#task-container-{{ task.id }}">
+      <div class="card-body pt-2 pb-0 mb-0 form-group">
+        <div class="row card-header mx-1 my-0 py-0">
+          <div class="col-auto btn my-0 btn-outline-light btn-back" data-toggle="collapse" data-target="#task-content-{{ task.id }}"></div>
+          <div class="col"></div>
+          <div class="col-auto btn btn-outline-secondary btn-delete my-0 mr-3" data-toggle="collapse" data-target="#task-content-{{ task.id }}" task-id="{{ task.id }}">삭제</div>
+          <div class="btn-save btn btn-outline-primary my-0" task-id="{{ task.id }}">저장</div>
+        </div>
+        <div class="row mx-1 pb-0 mb-0">
+          <input id="edit-title-{{ task.id }}" type="text" class="form-control my-1" placeholder="제목" value="{{ task.title }}">
+          <textarea id="edit-content-{{ task.id }}" type="text" class="form-control my-1" placeholder="세부 내용">{{ task.text }}</textarea>
+          <div class="col col-sm-9 pl-0 pr-1">
+            {% if task.expire_date %}
+              <input id="edit-date-{{ task.id }}" type="date" class="form-control my-1" placeholder="날짜" value="{{ task.expire_date }}">
+            {% else %}
+              <input id="edit-date-{{ task.id }}" type="date" class="form-control my-1" placeholder="날짜">
+            {% endif %}
+          </div>
+          <div class="col-2 col-sm-3 pl-1 pr-0">
+            {% if task.priority %}
+              <input id="edit-priority-{{ task.id }}" type="number" min="1" max="5" class="form-control my-1" placeholder="우선순위" value="{{ task.priority }}">
+            {% else %}
+              <input id="edit-priority-{{ task.id }}" type="number" min="1" max="5" class="form-control my-1" placeholder="우선순위"">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

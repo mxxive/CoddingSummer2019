@@ -1,0 +1,11 @@
+env
+
+*.pyc
+*~
+__pycache__
+db.sqlite3
+.DS_Store
+
+.vscode
+.note.md
+app.yaml
